@@ -21,6 +21,4 @@ const path = "/graphql";
 // app.use(verifyToken);
 server.applyMiddleware({ app, path });
 
-app.listen(process.env.PORT || 4000, () =>
-  console.log("Service meetup is listening")
-);
+app.listen(4000, () => console.log("Service meetup is listening"));

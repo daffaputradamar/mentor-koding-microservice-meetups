@@ -13,7 +13,7 @@ const resolvers = {
       return await Meetup.find({ mentorId: args.mentorId });
     },
     meetupByUser: async (root, args) => {
-      return await Meetup.find({ userId: args.userId });
+      return await Meetup.find({ studentId: args.studentId });
     }
   },
   Mutation: {

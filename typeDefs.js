@@ -1,8 +1,9 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-  Type Meetup {
-    topic: String  
+  type Meetup {
+    _id: ID
+    topic: String
     mentorId: ID
     studentId: ID
     Date: String
@@ -12,7 +13,7 @@ const typeDefs = gql`
     isFinished: Boolean
   }
 
-  Input MeetupInput {
+  input MeetupInput {
     topic: String!
     mentorId: ID!
     studentId: ID!
@@ -24,9 +25,9 @@ const typeDefs = gql`
 
   type Query {
     meetups: [Meetup]
-    meetup(_id: ID): Meetup
-    meetupByMentor(mentorId: ID):[Meetup]
-    meetupByUser(userId: ID):[Meetup]
+    meetup(_id: ID!): Meetup
+    meetupByMentor(mentorId: ID!): [Meetup]
+    meetupByUser(studentId: ID!): [Meetup]
   }
 
   type Mutation {
