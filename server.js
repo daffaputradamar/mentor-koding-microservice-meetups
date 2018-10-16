@@ -8,8 +8,13 @@ require("./config/db");
 
 const typeDefs = require("./typeDefs");
 const resolvers = require("./resolvers");
+const context = require("./context");
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context
+});
 
 const app = express();
 
@@ -18,7 +23,7 @@ app.use(express.json());
 
 const path = "/graphql";
 
-// app.use(verifyToken);
+app.use(verifyToken);
 server.applyMiddleware({ app, path });
 
-app.listen(4000, () => console.log("Service meetup is listening"));
+app.listen(4000, () => console.log("Service meetup is listening in 4000"));

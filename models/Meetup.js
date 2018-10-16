@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const ObjectId = require("mongoose").Types.ObjectId;
+const Float = require("mongoose-float").loadType(mongoose, 14);
 
 ObjectId.prototype.valueOf = function() {
   return this.toString();
@@ -13,31 +14,45 @@ const MeetupSchema = new Schema({
   },
   mentorId: {
     type: String,
-    required: true
+    required: true,
+    ref: "User"
   },
   studentId: {
     type: String,
-    required: true
+    required: true,
+    ref: "User"
   },
-  Date: {
-    type: Date,
+  date: {
+    type: String,
     required: true
   },
   lat: {
-    type: String,
+    type: Float,
     required: true
   },
-  long: {
-    type: String,
+  lng: {
+    type: Float,
     required: true
   },
   detailPlace: {
     type: String,
     required: true
   },
+  isConfirmed: {
+    type: Boolean,
+    default: false
+  },
   isFinished: {
     type: Boolean,
     default: false
+  },
+  rating: {
+    type: Number,
+    default: null
+  },
+  review: {
+    type: String,
+    default: null
   }
 });
 
