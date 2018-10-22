@@ -26,6 +26,10 @@ const MeetupSchema = new Schema({
     type: String,
     required: true
   },
+  time: {
+    type: String,
+    required: true
+  },
   lat: {
     type: Float,
     required: true

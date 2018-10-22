@@ -29,6 +29,7 @@ const typeDefs = gql`
     mentorId: User
     studentId: User
     date: String
+    time: String
     lat: Float
     lng: Float
     detailPlace: String
@@ -42,14 +43,16 @@ const typeDefs = gql`
     topic: String!
     mentorId: ID!
     date: String!
-    lat: Float
-    lng: Float
+    time: String!
+    lat: Float!
+    lng: Float!
     detailPlace: String!
   }
 
   input updateMeetup {
     topic: String
     date: String
+    time: String
     lat: String
     lng: String
     detailPlace: String

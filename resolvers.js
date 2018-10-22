@@ -38,27 +38,22 @@ const resolvers = {
   Mutation: {
     createMeetup: async (root, args, context) => {
       if (context.data) {
-        let user = args.meetup;
-        user.studentId = context.data;
-        return await Meetup.create(user);
+        let meetup = args.meetup;
+        meetup.studentId = context.data;
+        return await Meetup.create(meetup);
       } else {
         throw new AuthenticationError("Must Authenticate");
       }
     },
     updateMeetup: async (root, args, context) => {
       if (context.data) {
-        let meetup = await Meetup.findById(args._id);
-        return await meetup.update({
-          topic: args.meetup.topic || meetup.topic,
-          date: args.meetup.date || meetup.date,
-          lat: args.meetup.lat || meetup.lat,
-          lng: args.meetup.lng || meetup.lng,
-          detailPlace: args.meetup.detailPlace || meetup.detailPlace,
-          isConfirmed: args.meetup.isConfirmed || meetup.isConfirmed,
-          isFinished: args.meetup.isFinished || meetup.isFinished,
-          rating: args.meetup.rating || meetup.rating,
-          review: args.meetup.review || meetup.review
-        });
+        let meetup = await Meetup.findOneAndUpdate(
+          { _id: args._id },
+          {
+            $set: args.user
+          }
+        );
+        return await Meetup.findById(args._id);
       } else {
         throw new AuthenticationError("Must Authenticate");
       }
