@@ -53,8 +53,8 @@ const typeDefs = gql`
     topic: String
     date: String
     time: String
-    lat: String
-    lng: String
+    lat: Float
+    lng: Float
     detailPlace: String
     isConfirmed: Boolean
     isFinished: Boolean
