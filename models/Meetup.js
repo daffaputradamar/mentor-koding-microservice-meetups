@@ -1,10 +1,10 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-const ObjectId = require("mongoose").Types.ObjectId;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+const ObjectId = require('mongoose').Types.ObjectId
 
 ObjectId.prototype.valueOf = function() {
-  return this.toString();
-};
+  return this.toString()
+}
 
 const MeetupSchema = new Schema({
   topic: {
@@ -19,7 +19,7 @@ const MeetupSchema = new Schema({
     type: String,
     required: true
   },
-  Date: {
+  datetime: {
     type: Date,
     required: true
   },
@@ -27,7 +27,7 @@ const MeetupSchema = new Schema({
     type: String,
     required: true
   },
-  long: {
+  lng: {
     type: String,
     required: true
   },
@@ -38,7 +38,11 @@ const MeetupSchema = new Schema({
   isFinished: {
     type: Boolean,
     default: false
+  },
+  isConfirmed: {
+    type: Boolean,
+    default: false
   }
-});
+})
 
-module.exports = mongoose.model("Meetup", MeetupSchema);
+module.exports = mongoose.model('Meetup', MeetupSchema)
