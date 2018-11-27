@@ -8,4 +8,4 @@ app.use(cors())
 app.use(express.json())
 app.use('/meetup', meetupRouter)
 
-app.listen(5000, () => console.log('Service meetup is listening'))
+app.listen(process.env.PORT || 5000, () => console.log('Service meetup is listening'))
