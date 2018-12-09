@@ -20,7 +20,7 @@ const MeetupSchema = new Schema({
     required: true
   },
   datetime: {
-    type: String,
+    type: Date,
     required: true
   },
   lat: {

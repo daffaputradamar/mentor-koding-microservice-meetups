@@ -8,10 +8,21 @@ const data = [
         topic: 'Belajar dasar nodejs',
         mentorId: '5bfd1ca5b5a8252d542411d5',
         studentId: '5bfd1ca5b5a8252d542411d6',
-        datetime: '29-11-2018 05:00',
+        datetime: new Date('2019-01-01T08:00:00'),
         lat: 0.0,
         lng: 0.0,
-        detailPlace: 'gazebo polinema'
+        detailPlace: 'gazebo polinema',
+        isConfirmed: true
+      },
+      {
+        topic: 'Belajar redux',
+        mentorId: '5bfd1ca5b5a8252d542411d5',
+        studentId: '5bfd1ca5b5a8252d542411d6',
+        datetime: new Date('2019-02-01T08:00:00'),
+        lat: 0.0,
+        lng: 0.0,
+        detailPlace: 'gazebo polinema',
+        isConfirmed: false
       }
     ]
   }
