@@ -42,6 +42,12 @@ const MeetupSchema = new Schema({
   isConfirmed: {
     type: Boolean,
     default: false
+  },
+  rating: {
+    type: Number
+  },
+  review: {
+    type: String
   }
 })
 
